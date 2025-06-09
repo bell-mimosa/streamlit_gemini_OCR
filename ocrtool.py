@@ -7,7 +7,7 @@ import os
 api_key = st.secrets["GEMINI_API_KEY"] if "GEMINI_API_KEY" in st.secrets else os.getenv("GEMINI_API_KEY")
 
 if not api_key:
-    st.error("Gemini APIキーが設定されていません。'.streamlit/secrets.toml' または環境変数を確認してください。")
+    st.error("Gemini APIキーが設定されていません。")
     st.stop()
 genai.configure(api_key=api_key)
 
@@ -15,7 +15,7 @@ st.set_page_config(
     page_title="Gemini 簡易OCR",
 )
 
-st.title("Gemini画像処理アプリ")
+st.title("Gemini文字認識アプリ")
 
 st.write("画像の文字をGeminiが抽出します。")
 
@@ -51,7 +51,7 @@ if uploaded_file is not None:
 
                     # 画像とプロンプトをGeminiに渡す
                     # model.generate_content(["プロンプト",添付ファイル])
-                    response = model.generate_content(["この画像の文字を抽出してください。適切にマークダウンして、結果のみを出力してください。", image])
+                    response = model.generate_content(["この画像の文字を抽出してください。適切にマークダウンして、結果のみを出力してください。画像内に文字がない場合は「画像から文字を抽出することができませんでした。文字を含む画像をアップロードしてください。」と返してください。", image])
 
                     # Geminiからのレスポンス表示
                     st.subheader("Geminiの処理結果:")
