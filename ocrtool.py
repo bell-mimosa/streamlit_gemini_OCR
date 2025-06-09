@@ -19,18 +19,6 @@ st.title("Gemini文字認識アプリ")
 
 st.write("画像の文字をGeminiが抽出します。")
 
-# 以下はGeminiの利用可能モデルを参照するためのプログラム
-# st.subheader("利用可能なGeminiモデル:")
-# available_models = []
-# for m in genai.list_models():
-#     # generateContent をサポートするモデルのみをフィルタリング
-#     if 'generateContent' in m.supported_generation_methods:
-#         available_models.append(m.name)
-#         st.write(f"- {m.name}")
-# if not available_models:
-#     st.write("現在、'generateContent' をサポートするモデルは見つかりませんでした。")
-
-
 # 画像アップロード
 uploaded_file = st.file_uploader("画像をアップロードしてください", type=["jpg", "jpeg", "png"])
 
