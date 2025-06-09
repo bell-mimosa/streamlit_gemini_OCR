@@ -12,8 +12,11 @@ if not api_key:
     st.stop()
 genai.configure(api_key=api_key)
 
+st.set_page_config(
+    page_title="Gemini 簡易OCR",
+)
 
-st.title("画像処理アプリ (Gemini連携)")
+st.title("Gemini画像処理アプリ")
 
 st.write("画像の文字をGeminiが抽出します。")
 
