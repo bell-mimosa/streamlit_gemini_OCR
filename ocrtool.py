@@ -3,8 +3,7 @@ from PIL import Image
 import google.generativeai as genai
 import os
 
-# Gemini APIキーの設定
-# 代わりに環境変数からも読み込めるようにする（デプロイ時などに便利）
+# Gemini APIキーの設定(環境変数も可)
 api_key = st.secrets["GEMINI_API_KEY"] if "GEMINI_API_KEY" in st.secrets else os.getenv("GEMINI_API_KEY")
 
 if not api_key:
@@ -20,6 +19,7 @@ st.title("Gemini画像処理アプリ")
 
 st.write("画像の文字をGeminiが抽出します。")
 
+# 以下はGeminiの利用可能モデルを参照するためのプログラム
 # st.subheader("利用可能なGeminiモデル:")
 # available_models = []
 # for m in genai.list_models():
