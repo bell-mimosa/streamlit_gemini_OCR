@@ -1,1 +1,1 @@
-# gemini_OCR_app
+# streamlit_gemini_OCR
